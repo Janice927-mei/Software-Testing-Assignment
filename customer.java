@@ -1,5 +1,3 @@
-package ApplicationCode;
-
 public class customer {
     private String customerID;
     private String name;
