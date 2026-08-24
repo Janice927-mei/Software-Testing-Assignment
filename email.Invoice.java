@@ -1,5 +1,6 @@
 public class emailInvoice {
-    public boolean sendEmail(customer cust, printOrder order) {
-        return false; 
+
+    public boolean sendInvoice(String emailAddress, String invoiceContent) {
+        return false;
     }
 }
