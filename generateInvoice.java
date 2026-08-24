@@ -1,21 +1,53 @@
 public class generateInvoice {
-    public void printInvoice(printOrder order) {
-        System.out.println("=====================================");
-        System.out.println("              INVOICE                ");
-        System.out.println("=====================================");
-        System.out.println("Customer Name : " + order.getCustomerDetails().getName());
-        System.out.println("Customer ID   : " + order.getCustomerDetails().getCustomerID());
-        System.out.println("-------------------------------------");
-        System.out.println("Order Details:");
-        System.out.println("Paper Size    : " + order.getPaperSize());
-        System.out.println("Print Type    : " + order.getPrintType());
-        System.out.println("Pages/Copies  : " + order.getPages() + " pages x " + order.getCopies() + " copies");
-        System.out.println("-------------------------------------");
-        System.out.println("Base Charge       : RM " + String.format("%.2f", order.getBaseCharge()));
-        System.out.println("Optional Services : RM " + String.format("%.2f", order.getAdditionalServiceCharges()));
-        System.out.println("Discounts Applied : -RM " + String.format("%.2f", order.getDiscounts()));
-        System.out.println("-------------------------------------");
-        System.out.println("FINAL TOTAL       : RM " + String.format("%.2f", order.getTotalPrintingCharge()));
-        System.out.println("=====================================");
+
+    public String generate(printOrder order) {
+
+        String invoice = "";
+
+        invoice += "========== PRINTMASTER INVOICE ==========\n";
+
+        invoice += "\n--- Customer Details ---\n";
+        invoice += "Customer ID: "
+                + order.getCustomer().getCustomerID() + "\n";
+        invoice += "Name: "
+                + order.getCustomer().getName() + "\n";
+        invoice += "Email: "
+                + order.getCustomer().getEmailAddress() + "\n";
+        invoice += "Phone: "
+                + order.getCustomer().getPhoneNumber() + "\n";
+
+        invoice += "\n--- Print Order Details ---\n";
+        invoice += "Print Type: " + order.getPrintType() + "\n";
+        invoice += "Paper Size: " + order.getPaperSize() + "\n";
+        invoice += "Printing Side: " + order.getPrintingSide() + "\n";
+        invoice += "Number of Pages: "
+                + order.getNumberOfPages() + "\n";
+        invoice += "Number of Copies: "
+                + order.getNumberOfCopies() + "\n";
+
+        invoice += "\n--- Charges ---\n";
+        invoice += String.format(
+                "Base Printing Charge: RM%.2f%n",
+                order.getBasePrintingCharge()
+        );
+
+        invoice += String.format(
+                "Optional Service Charges: RM%.2f%n",
+                order.getAdditionalServiceCharges()
+        );
+
+        invoice += String.format(
+                "Discount: RM%.2f%n",
+                order.getDiscountAmount()
+        );
+
+        invoice += String.format(
+                "Total Amount Payable: RM%.2f%n",
+                order.getTotalPrintingCharge()
+        );
+
+        invoice += "\n==========================================\n";
+
+        return invoice;
     }
 }
