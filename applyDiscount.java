@@ -2,6 +2,13 @@ public class applyDiscount {
 
     public double calculateDiscount(customer customer, double subtotal) {
 
+        if (customer == null) {
+            throw new IllegalArgumentException("Customer cannot be null.");
+        }
+        if (subtotal < 0) {
+            throw new IllegalArgumentException("Subtotal cannot be negative.");
+        }    	
+        
         double finalAmount = subtotal;
 
         // Student discount
