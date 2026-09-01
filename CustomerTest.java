@@ -26,7 +26,7 @@ public class CustomerTest {
 
     private int previousOrders;
 
-    public CustomerParameterizedTest(
+    public void CustomerParameterizedTest(
 
             String customerID,
 
