@@ -41,9 +41,7 @@ public class CalculatePrintingChargePartitionTest {
         when(orderMock.hasExpressPrinting()).thenReturn(false);
     }
 
-    // ==========================================
     // PARTITION: PAPER SIZE & RATE LOOKUPS
-    // ==========================================
 
     @Test
     public void testPartition_ValidPaper_A4_BW_SingleSided() {
@@ -91,9 +89,7 @@ public class CalculatePrintingChargePartitionTest {
         calculator.calculateTotal(orderMock);
     }
 
-    // ==========================================
     // PARTITION: OPTIONAL SERVICES & DISCOUNTS
-    // ==========================================
 
     @Test
     public void testPartition_AllServicesAndDiscount() {
@@ -122,9 +118,7 @@ public class CalculatePrintingChargePartitionTest {
         verify(orderMock).setTotalPrintingCharge(64.00);
     }
 
-    // ==========================================
     // PARTITION: PRINTER AVAILABILITY
-    // ==========================================
 
     @Test(expected = IllegalStateException.class)
     public void testPartition_PrinterUnavailable() {
