@@ -6,6 +6,8 @@ import java.util.Collection;
 
 import org.junit.Test;
 
+import ApplicationCode.customer;
+
 import org.junit.runner.RunWith;
 
 import org.junit.runners.Parameterized;
